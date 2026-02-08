@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -89,6 +90,95 @@
       font-size:12px;
       color:rgba(255,255,255,.78);
     }
+    .btn-wrap{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin-top:18px;
+}
+
+.btn{
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:56px;
+  border-radius:14px;
+  font-weight:900;
+  letter-spacing:.5px;
+  text-decoration:none;
+  user-select:none;
+
+  /* biar keliatan “kolom” tombol */
+  box-shadow: 0 10px 22px rgba(0,0,0,.22);
+  border: 1px solid rgba(255,255,255,.25);
+}
+
+/* Warna tombol */
+.btn-primary{ background:#5ff6ff; color:#06202a; }
+.btn-secondary{ background:#ffffff; color:#0b1b10; }
+.btn-tertiary{ background:rgba(255,255,255,.18); color:#fff; }
+
+/* ================== EFEK BERKILAU (SHINE) ================== */
+.btn::before{
+  content:"";
+  position:absolute;
+  top:-40%;
+  left:-60%;
+  width:45%;
+  height:180%;
+  transform:rotate(20deg);
+
+  background: linear-gradient(
+    to right,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,.55) 45%,
+    rgba(255,255,255,0) 100%
+  );
+
+  opacity:.7;
+  filter: blur(0.5px);
+  animation: shine 2.4s ease-in-out infinite;
+}
+
+/* beda kecepatan tiap tombol biar natural */
+.btn-secondary::before{ animation-duration: 2.9s; opacity:.55; }
+.btn-tertiary::before{ animation-duration: 3.3s; opacity:.45; }
+
+@keyframes shine{
+  0%{ left:-70%; }
+  60%{ left:120%; }
+  100%{ left:120%; }
+}
+
+/* Hover (desktop) */
+.btn:hover{
+  transform: translateY(-1px);
+  transition: .18s ease;
+}
+.btn{
+  box-shadow:
+    0 10px 22px rgba(0,0,0,.22),
+    0 0 18px rgba(95,246,255,.18);
+}
+/* JARAK ANTAR TOMBOL */
+.btn-wrap{
+  display:flex;
+  flex-direction:column;
+  gap:22px;          /* ⬅️ ini yang bikin renggang */
+  margin-top:22px;
+}
+
+/* kalau tombol bukan di btn-wrap, pakai ini */
+.btn{
+  margin-bottom:8px;
+}
+
+/* khusus tombol terakhir biar tidak kebanyakan space */
+.btn:last-child{
+  margin-bottom:0;
+}
   </style>
 </head>
 <body>
@@ -100,22 +190,19 @@
     <p>Klik tombol di bawah untuk Login & chat dengan admin.</p>
 
     <!-- GANTI LINK CLAIM -->
-    <a class="btn btn-primary" href="https://hokiadmin.github.io/luckyspin/" rel="noopener">
+    <a class="btn btn-primary" href="https://hokiadmin.github.io/trnpordi.github.io/" rel="noopener">
       LINK FREEBET
     </a>
 
     <!-- GANTI LINK CS (Messenger / WA / Livechat) -->
     <a class="btn btn-secondary" href="https://tinyurl.com/3r2mdpb4" rel="noopener">
-      KLAIM KODE TIKET
+      KLAIM TIKET VIA LIVE CHAT
     </a>
+
+    <!-- GANTI LINK CS (Messenger / WA / Livechat) -->
+     <a class="btn btn-tertiary" href="https://tarunapordi.com/register" target="_blank">DAFTAR AKUN</a>
 
     <div class="small">Jika tombol tidak terbuka, coba refresh lalu klik lagi.</div>
   </main>
 </body>
 </html>
-
-
-
-
-
-
